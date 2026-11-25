@@ -1,0 +1,19 @@
+<h1>All our Flats</h1>
+
+<div id="flats">
+  <% @flats.each do |flat| %>
+    <h2><%= flat.name %></h2>
+    <%= image_tag flat.picture_url, width: 200 if flat.picture_url.present? %>
+    <p><%= flat.address%></p>
+    <p><%= flat.description%></p>
+    <p><%= flat.price_per_night%></p>
+    <p><%= flat.number_of_guests%></p>
+    <%= link_to "More info", flat_path(flat) %>
+    <%= link_to "Edit", edit_flat_path(flat) %>
+    <%= link_to "Delete", flat_path(flat),
+       data: { turbo_method: :delete } %>
+  <% end %>
+
+
+
+</div>

@@ -1,0 +1,12 @@
+<h1><%= @flat.name %></h1>
+<%= image_tag @flat.picture_url, width: 400 if @flat.picture_url.present? %>
+
+<p><%= @flat.address %></p>
+<p><%= @flat.description %></p>
+<p><%= @flat.price_per_night %></p>
+<p><%= @flat.number_of_guests %></p>
+
+<%= link_to "Edit this flat", edit_flat_path(@flat) %>
+<%= link_to "Delete this flat", flat_path(@flat),
+    data: { turbo_method: :delete } %>
+<%= link_to "Back to flats", flats_path %>
